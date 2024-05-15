@@ -12,11 +12,20 @@ namespace TP_Web_Equipo_10
     public partial class MasterPage : System.Web.UI.MasterPage
     {
         public string hola = "hola";
+
         public List<Article> articleList { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticleDBAccess DBAcceslist = new ArticleDBAccess();
             articleList = DBAcceslist.ListArticles();
+
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = searchBar.Text;
+
+            Response.Redirect("Default.aspx?=filtro" + searchText, false);
         }
     }
 }

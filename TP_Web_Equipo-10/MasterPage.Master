@@ -57,8 +57,10 @@
                                 </li>
                             </ul>
                             <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                <%--<input id="searchBar" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"> Este no va porque no es ASPX --%>
+                                <asp:TextBox ID="searchBar" runat="server" CssClass="form-control me-2" placeholder=" Buscar..."></asp:TextBox>
+                                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-outline-success" Text="Buscar" />
+                                <%--<button class="btn btn-outline-success" onclick ="btnSearch_Click" type="submit">Buscar</button> Este no va porque no es ASPX --%>
                                 <%--este button activa el offcanvas del carrito--%>
                                 <button type="button" class="btn btn-primary position-relative" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarrito" style="margin-left: 8px">
                                     <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="" width="24" height="24" />

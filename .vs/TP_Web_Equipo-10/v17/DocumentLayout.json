@@ -1,34 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\",
+  "WorkspaceRootPath": "C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|c:\\users\\usuario\\desktop\\utn 5to cuatrimestre\\programaci\u00F3n iii\\actividad 4\\tp_web_equipo-10\\tp_web_equipo-10\\masterpage.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|c:\\users\\matis\\desktop\\zerafin\\facultad\\materias\\programacion iii\\webhtml\\repo\\tp_web_equipo-10\\tp_web_equipo-10\\masterpage.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|solutionrelative:tp_web_equipo-10\\masterpage.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\tp_web_equipo-10\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|solutionrelative:tp_web_equipo-10\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\tp_web_equipo-10\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|solutionrelative:tp_web_equipo-10\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\tp_web_equipo-10\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "AbsoluteMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\tp_web_equipo-10\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{2132DC1E-A937-4357-9049-E2850D7A203A}|TP_Web_Equipo-10\\TP_Web_Equipo-10.csproj|solutionrelative:tp_web_equipo-10\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B277B3E3-7D6E-49FA-89CE-F3F5038072AF}|DBAccess\\DBAccess.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\dbaccess\\articledbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B277B3E3-7D6E-49FA-89CE-F3F5038072AF}|DBAccess\\DBAccess.csproj|solutionrelative:dbaccess\\articledbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D6A80A-8317-4DEB-A537-772FC9FA9267}|ModelDomain\\ModelDomain.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\modeldomain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8D6A80A-8317-4DEB-A537-772FC9FA9267}|ModelDomain\\ModelDomain.csproj|solutionrelative:modeldomain\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8D6A80A-8317-4DEB-A537-772FC9FA9267}|ModelDomain\\ModelDomain.csproj|C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\modeldomain\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8D6A80A-8317-4DEB-A537-772FC9FA9267}|ModelDomain\\ModelDomain.csproj|solutionrelative:modeldomain\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,86 +24,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MasterPage.Master.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master.cs",
+              "DocumentMoniker": "C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master.cs",
               "RelativeDocumentMoniker": "TP_Web_Equipo-10\\MasterPage.Master.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master.cs",
+              "ToolTip": "C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master.cs",
               "RelativeToolTip": "TP_Web_Equipo-10\\MasterPage.Master.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T01:56:11.09Z",
+              "WhenOpened": "2024-05-14T23:58:45.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MasterPage.Master",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master",
+              "DocumentMoniker": "C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master",
               "RelativeDocumentMoniker": "TP_Web_Equipo-10\\MasterPage.Master",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master",
+              "ToolTip": "C:\\Users\\matis\\Desktop\\Zerafin\\Facultad\\Materias\\Programacion III\\WebHTML\\Repo\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\MasterPage.Master",
               "RelativeToolTip": "TP_Web_Equipo-10\\MasterPage.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-14T00:54:26.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Image.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\ModelDomain\\Image.cs",
-              "RelativeDocumentMoniker": "ModelDomain\\Image.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\ModelDomain\\Image.cs",
-              "RelativeToolTip": "ModelDomain\\Image.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T02:38:08.957Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Article.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\ModelDomain\\Article.cs",
-              "RelativeDocumentMoniker": "ModelDomain\\Article.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\ModelDomain\\Article.cs",
-              "RelativeToolTip": "ModelDomain\\Article.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T02:36:21.935Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ArticleDBAccess.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\DBAccess\\ArticleDBAccess.cs",
-              "RelativeDocumentMoniker": "DBAccess\\ArticleDBAccess.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\DBAccess\\ArticleDBAccess.cs",
-              "RelativeToolTip": "DBAccess\\ArticleDBAccess.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAmwEkAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T01:53:11.209Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Default.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\Default.aspx.cs",
-              "RelativeDocumentMoniker": "TP_Web_Equipo-10\\Default.aspx.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\Default.aspx.cs",
-              "RelativeToolTip": "TP_Web_Equipo-10\\Default.aspx.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAYwBUAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T01:52:14.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\Default.aspx",
-              "RelativeDocumentMoniker": "TP_Web_Equipo-10\\Default.aspx",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\UTN 5to CUATRIMESTRE\\Programaci\u00F3n III\\Actividad 4\\TP_Web_Equipo-10\\TP_Web_Equipo-10\\Default.aspx",
-              "RelativeToolTip": "TP_Web_Equipo-10\\Default.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-11T23:34:35.673Z"
+              "WhenOpened": "2024-05-14T23:58:42.667Z"
             }
           ]
         }
