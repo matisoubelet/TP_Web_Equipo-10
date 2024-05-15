@@ -1,4 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TP_Web_Equipo_10.MasterPage" %>
+<%@ Import Namespace="ModelDomain" %>
+<%@ Import Namespace="DBAccess" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="p-3 mb-2 bg-primary"></div>
+    <div class="p-2 mb-2 bg-primary"></div>
     <form id="form1" runat="server">
         <header>
             <div>
@@ -21,53 +23,26 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 5px">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="nbddFilterBrand" role="button" data-bs-toggle="dropdown" aria-expanded="false">Marcas
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Todas</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <%--esto tiene que ser cargado desde db--%>
-                                        <%--"#" deberia recargar con filtro--%>
-                                        <li><a class="dropdown-item" href="#">Samsung</a></li>
-                                        <li><a class="dropdown-item" href="#">Apple</a></li>
-                                        <li><a class="dropdown-item" href="#">Sony</a></li>
-                                        <li><a class="dropdown-item" href="#">Motorola</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="nbddFilterCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Todas</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <%--esto tiene que ser cargado desde db--%>
-                                        <%--"#" deberia recargar con filtro--%>
-                                        <li><a class="dropdown-item" href="#">Celular</a></li>
-                                        <li><a class="dropdown-item" href="#">Televisor</a></li>
-                                        <li><a class="dropdown-item" href="#">Media</a></li>
-                                        <li><a class="dropdown-item" href="#">Consola</a></li>
-                                    </ul>
-                                </li>
+                                
+                                <asp:DropDownList ID="ddlBrands" runat="server" OnSelectedIndexChanged="ddlBrands_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlCategories" runat="server" OnSelectedIndexChanged="ddlCategories_SelectedIndexChanged"></asp:DropDownList>
+
                             </ul>
                             <form class="d-flex">
-                                <%--<input id="searchBar" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"> Este no va porque no es ASPX --%>
                                 <asp:TextBox ID="searchBar" runat="server" CssClass="form-control me-2" placeholder=" Buscar..."></asp:TextBox>
-                                <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-outline-success" Text="Buscar" />
-                                <%--<button class="btn btn-outline-success" onclick ="btnSearch_Click" type="submit">Buscar</button> Este no va porque no es ASPX --%>
-                                <%--este button activa el offcanvas del carrito--%>
+                                <asp:Button ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="btn btn-outline-success" Text="Buscar" />
+
                                 <button type="button" class="btn btn-primary position-relative" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarrito" style="margin-left: 8px">
                                     <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="" width="24" height="24" />
                                     <%--este circulito rojo deberia aparecer solo cuando el carrito no esta vacio--%>
+                                    <%if (articleList != null)
+                                        {%>
                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                                         <span class="visually-hidden">Artículos pendientes</span>
                                     </span>
+                                    <%} %>
                                 </button>
                             </form>
                         </div>
@@ -83,15 +58,13 @@
                 <div class="offcanvas-body">
 
                     <div>
-                        <%if (articleList == null) { %>
-                            
+
                         Carrito vacío.
-                        <%}else {%>
-                   
+
                         <div class="row row-cols-1 row-cols-md-1 g-4">
 
-                            <%foreach (ModelDomain.Article article in articleList)
-                              { %>
+                            <%foreach (Article article in articleList)
+                                { %>
 
                             <div class="col">
                                 <div class="card">
@@ -103,7 +76,6 @@
                                 </div>
                             </div> 
                             <%}%>
-                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -114,8 +86,11 @@
             </asp:ContentPlaceHolder>
         </div>
         <div>
-            <footer>
-                Grupo 10 - Andrés Tombo - Matías Soubelet - Walter Inzaurralde
+            <footer class="fixed-bottom">
+                <div class="p-2 mb-2 bg-secondary text-light">
+                    Grupo 10 - Andrés Tombo - Matías Soubelet - Walter Inzaurralde
+                </div>
+                
             </footer>
         </div>
     </form>

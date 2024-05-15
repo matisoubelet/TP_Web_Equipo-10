@@ -16,3 +16,9 @@ C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repo\T
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repo\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.CoreCompileInputs.cache
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repo\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.dll
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repo\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.pdb
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\bin\Debug\ModelDomain.dll
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\bin\Debug\ModelDomain.pdb
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.AssemblyReference.cache
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.CoreCompileInputs.cache
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.dll
+C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.pdb

@@ -13,40 +13,74 @@ namespace TP_Web_Equipo_10
 {
     public partial class Default : System.Web.UI.Page
     {
+        ArticleDBAccess DBAcceslist = new ArticleDBAccess();
+        public List<Article> articleList = new List<Article>();
+        public List<Img> imgList = new List<Img>();
 
-        public List<Article> articleList { get; set; }
-        public List<Img> imgList { get; set; }
+        string searchFilter = "";
+        int brandIndex = -1;
+        int categoryIndex = -1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Trae desde la base de datos el litado de articulos y la mete en las cards
             // Trae desde la base de datos el litado de articulos con sus imagenes y la mete en las cards
-            if (!IsPostBack)
+
+            List<Article> fullArticleList = DBAcceslist.ListArticles();
+            List<Img> fullImgList = DBAcceslist.ListImages();
+
+            articleList = new List<Article>();
+            imgList = new List<Img>();
+
+            bool filtered = true;
+            Img previewPic = new Img();
+
+            if (Request.QueryString["busq"] != null)
             {
-                ArticleDBAccess DBAcceslist = new ArticleDBAccess();
-                articleList = DBAcceslist.ListArticles();
-                imgList = DBAcceslist.ListImages();
+                searchFilter = Request.QueryString["busq"];
             }
-            else
+
+            if (Request.QueryString["marca"] != null)
             {
-                string searchText = Request.QueryString["filtro"];
-                articleList = new List<Article>();
+                 brandIndex = int.Parse(Request.QueryString["marca"]);
+            }
 
-                ArticleDBAccess DBAcceslist = new ArticleDBAccess();
-                List<Article> fullList = DBAcceslist.ListArticles();
+            if (Request.QueryString["categ"] != null)
+            {
+                categoryIndex = int.Parse(Request.QueryString["categ"]);
+            }
 
-                if (!string.IsNullOrEmpty(searchText))
+            foreach (Article article in fullArticleList)
+            {
+                filtered = true;
+                if (brandIndex != -1 && brandIndex != article.idBrand)
                 {
-                    foreach (Article art in fullList)
+                    filtered = false;
+                }
+                if (categoryIndex != -1 && categoryIndex != article.idCategory)
+                {
+                    filtered = false;
+                }
+                if (searchFilter != "" && !article.name.ToUpperInvariant().Contains(searchFilter.ToUpperInvariant()))
+                {
+                    filtered = false;
+                }
+
+                if (filtered)
+                {
+                    foreach (Img img in fullImgList)
                     {
-                        if (art.name.Contains(searchText))
+                        if (article.id == img.articleID)
                         {
-                            articleList.Add(art);
+                            previewPic = img;
+                            break;
                         }
                     }
+                    articleList.Add(article);
+                    imgList.Add(previewPic);
                 }
             }
         }
-
         protected void btnDetail_Click(object sender, EventArgs e)
         {
             // Atrapa el ID del articulo donde se haya dado click al boton, y lo redirige a "ArticDetail.aspx"
@@ -62,6 +96,5 @@ namespace TP_Web_Equipo_10
             // Asi como un boton que diga algo como "Realizar Pago" donde redirija el al usuario y el list de articulos
             // a "Purchases.aspx"
         }
-
     }
 }
