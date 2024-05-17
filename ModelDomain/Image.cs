@@ -8,8 +8,8 @@ namespace ModelDomain
 {
     public class Img
     {
-        public int id;
-        public int articleID;
-        public string imageUrl;
+        public int id { get; set; }
+        public int articleID { get; set; }
+        public string imageUrl { get; set; }
     }
 }

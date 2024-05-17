@@ -9,13 +9,13 @@ namespace ModelDomain
     public class Article
     {
 
-        public int id; // Unique, identity (1,1)
+        public int id { get; set; } // Unique, identity (1,1)
         public string code; //Maximo 50 caracteres (en la tabla aparecen codigos de 3, ejemplo: SO1, MO2
-        public string name; //Maximo 50 caracteres
-        public string desc; //Maximo 50 caracteres
+        public string name { get; set; } //Maximo 50 caracteres
+        public string desc { get; set; } //Maximo 50 caracteres
         public int idBrand; // Clase de donde se puede linkear el IdMarca con el IdArticulo
         public int idCategory; //Clase de donde se puede linkear el IdCategoria con el IdArticulo
-        public float price; // Que sea mayor a cero
+        public float price { get; set; } // Que sea mayor a cero
 
         private static Random random = new Random();
 

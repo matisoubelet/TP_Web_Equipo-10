@@ -15,99 +15,141 @@ namespace TP_Web_Equipo_10
         public List<Article> articleList { get; set; }
         public List<Brand> brandList { get; set; }
         public List<Category> categoryList { get; set; }
+        public List<Img> imgList {  get; set; } 
 
         string searchFilter = "";
-        bool brandFilter = false;
-        bool categoryFilter = false;
-        int brandIndex = 0;
-        int categoryIndex = 0;
+        int brandIndex = -1;
+        int categoryIndex = -1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticleDBAccess articleDBAccess = new ArticleDBAccess();
 
-            //ddlBrands.SelectedIndex = brandIndex;
-            //ddlCategories.SelectedIndex = categoryIndex;
-            //searchBar.Text = searchFilter;
-
             articleList = articleDBAccess.ListArticles();
             brandList = articleDBAccess.ListBrands();
             categoryList = articleDBAccess.ListCategories();
+            imgList = articleDBAccess.ListImages();
 
-            ddlBrands.Items.Clear();
-            ddlCategories.Items.Clear();
-
-            ddlBrands.Items.Add("Todas");
-            ddlCategories.Items.Add("Todas");
-
-            foreach (Brand brand in brandList)
+            if (!IsPostBack)
             {
-                ddlBrands.Items.Add(brand.name);
+                ddlBrands.Items.Clear();
+                ddlCategories.Items.Clear();
+
+                ddlBrands.Items.Add("Todas");
+                ddlCategories.Items.Add("Todas");
+
+                foreach (Brand brand in brandList)
+                {
+                    ddlBrands.Items.Add(brand.name);
+                }
+                foreach (Category category in categoryList)
+                {
+                    ddlCategories.Items.Add(category.name);
+                }
+                SetFiltersFromSession();
             }
-            foreach (Category category in categoryList)
+        }
+
+        private void SetFiltersFromSession ()
+        {
+            lblTemp.Text = "";
+            if (Session["busq"] != null)
             {
-                ddlCategories.Items.Add(category.name);
+                searchBar.Text = Session["busq"].ToString();
+                lblTemp.Text += Session["busq"].ToString() + ", ";
             }
-            Debug.WriteLine(brandIndex);
-            Debug.WriteLine(categoryIndex);
+            if (Session["marca"] != null)
+            {
+                ddlBrands.SelectedIndex = (int)Session["marca"];
+                lblTemp.Text += Session["marca"].ToString() + ", ";
+            }
+            if (Session["categ"] != null)
+            {
+                ddlCategories.SelectedIndex = (int)Session["categ"];
+                lblTemp.Text += Session["categ"].ToString();
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            searchFilter = searchBar.Text;
 
-            if (searchBar.Text != "")
+            if (Session["busq"] != null)
             {
-                searchFilter = searchBar.Text;
-
+                Session["busq"] = searchFilter;
             }
-            CallRedirectFilter();
+            else
+            {
+                Session.Add("busq", searchFilter);
+            }
+            SetFiltersFromSession();
+            Response.Redirect("Default.aspx", false);
+        }
+        protected void ddlBrands_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            brandIndex = ddlBrands.SelectedIndex;
+            Debug.WriteLine(brandIndex);
+
+            if (Session["marca"] != null)
+            {
+                if (brandIndex > 0)
+                {
+                    Session["marca"] = brandIndex;
+                }
+                else
+                {
+                    Session["marca"] = -1;
+                }
+            }
+            else
+            {
+                if (brandIndex > 0)
+                {
+                    Session.Add("marca", brandIndex);
+                }
+                else
+                {
+                    Session.Add("marca", -1);
+                }
+            }
+            SetFiltersFromSession();
+            //Response.Redirect("Default.aspx", false);
         }
 
         protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            brandIndex = ddlCategories.SelectedIndex;
-            if (brandIndex != 0)
+            categoryIndex = ddlCategories.SelectedIndex;
+            Debug.WriteLine(categoryIndex);
+
+            if (Session["categ"] != null)
             {
-                brandFilter = true;
+                if (categoryIndex > 0)
+                {
+                    Session["categ"] = categoryIndex;
+                }
+                else
+                {
+                    Session["categ"] = -1;
+                }
             }
             else
             {
-                brandFilter = false;
+                if (categoryIndex > 0)
+                {
+                    Session.Add("categ", categoryIndex);
+                }
+                else
+                {
+                    Session.Add("categ", -1);
+                }
             }
-            CallRedirectFilter();
+            SetFiltersFromSession();
+            //Response.Redirect("Default.aspx", false);
         }
 
-        protected void ddlBrands_SelectedIndexChanged(object sender, EventArgs e)
+        protected void BtnPurchase_Click(object sender, EventArgs e)
         {
-            categoryIndex = ddlBrands.SelectedIndex;
-            if (categoryIndex != 0)
-            {
-                categoryFilter = true;
-            }
-            else
-            {
-                categoryFilter = false;
-            }
-            CallRedirectFilter();
-        }
-
-        private void CallRedirectFilter()
-        {
-            if (searchFilter != null || brandFilter || categoryFilter)
-            {
-                int marca = -1;
-                int categ = -1;
-                if (brandFilter)
-                {
-                    marca = brandIndex;
-                }
-                if (categoryFilter)
-                {
-                    categ = categoryIndex;
-                }
-
-                Response.Redirect("Default.aspx?busq=" + searchFilter.ToUpperInvariant() + "&marca=" + marca + "&categ=" + categ, false);
-            }
+            Response.Redirect("Purchase.aspx");
         }
     }
 }

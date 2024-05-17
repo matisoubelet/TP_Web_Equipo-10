@@ -6,31 +6,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        <asp:Repeater runat="server" ID="rptArticleList" OnItemDataBound="rptArticleList_ItemDataBound">
+            <ItemTemplate>
 
-            <%
-            foreach (Article article in articleList)
-            {
-                string newImgUrl = "";
-                foreach (Img img in imgList)
-                {
-                    if (article.id == img.id)
-                    {
-                        newImgUrl = img.imageUrl;
-                    } 
-                } %>
-                    <div class="card" style="width: 250px">
-                        <img src="<%: newImgUrl %>" class="card-img-top img-thumbnail" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><%: article.name %></h5>
-                            <p class="card-text"><%: article.desc %></p>
-                            <p class="card-text">$<%: article.price %></p>
-                        </div>
-                        <asp:Button ID="btnDetail" runat="server" CssClass="btn btn-info" OnClick="btnDetail_Click" Text="Detalles" />
-                        <asp:Button ID="btnBuy" runat="server" CssClass="btn btn-primary" OnClick="btnBuy_Click" Text="Agregar al Carrito" />
+                <%# currID = int.Parse(Eval("id").ToString()) %>
+
+                <div class="card" style="width: 250px">
+
+                    <asp:Repeater runat="server" ID="rptImgList">
+                        <ItemTemplate>
+                            <div runat="server" visible='<%# (int.Parse(Eval("articleID").ToString()) == currID)%>'>
+                                <img src="<%# Eval("imageUrl")%>" class="card-img-top img-thumbnail" alt="...">
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                    <div class="card-body">
+                        <h5 class="card-title"><%#Eval("name")%></h5>
+                        <p class="card-text"><%#Eval("desc")%></p>
+                        <p class="card-text">$<%#Eval("price")%></p>
                     </div>
-            <% } %>
+                    <asp:LinkButton ID="btnDetails" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-info" OnClick="btnDetails_Click" Text="Ver Detalles"/>
+                    <asp:LinkButton ID="btnAddToCart" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-primary" OnClick="btnAddToCart_Click" Text="Agregar al Carrito" />
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 
 </asp:Content>
