@@ -17,7 +17,7 @@
                     <asp:Repeater runat="server" ID="rptImgList">
                         <ItemTemplate>
                             <div style="margin: 10px" runat="server" visible='<%# (int.Parse(Eval("articleID").ToString()) == currID)%>'>
-                                <img style="height:230px; width:230px" src="<%# Eval("imageUrl")%>" class="card-img-top img-thumbnail" alt="...">
+                                <img style="height:230px; width:230px" src="<%# Eval("imageUrl")%>" class="card-img-top img-thumbnail" alt="" onerror="this.onerror=null; this.src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_640.png";">
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
