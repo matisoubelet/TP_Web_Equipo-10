@@ -16,8 +16,11 @@ namespace TP_Web_Equipo_10
     public partial class Default : System.Web.UI.Page
     {
         ArticleDBAccess DBAcceslist = new ArticleDBAccess();
+
         public List<Article> articleList = new List<Article>();
         public List<Img> imgList = new List<Img>();
+        public List<Article> articleCartList = new List<Article>();
+
         public int currID;
 
         string searchFilter = "";
@@ -34,6 +37,7 @@ namespace TP_Web_Equipo_10
 
             articleList = new List<Article>();
             imgList = new List<Img>();
+            articleCartList = new List<Article>();
 
             bool filtered;
             Img previewPic = new Img();
@@ -86,6 +90,7 @@ namespace TP_Web_Equipo_10
             {
                 rptArticleList.DataSource = articleList;
                 rptArticleList.DataBind();
+                
             }
         }
         protected void btnDetails_Click(object sender, EventArgs e)
@@ -103,15 +108,18 @@ namespace TP_Web_Equipo_10
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(((LinkButton)sender).CommandArgument);
-            // este evento tiene que agregar el articulo con el id correspondiente al command arg
-            // y avisarle a masterpage que lo tome, porque la lista tiene que estar en master page
-            // para que el carrito actualice (default -> masterpage -> carrito) (no se como todavia)
+            int articleId = int.Parse(((LinkButton)sender).CommandArgument);
+            Article article = articleList.Find(x => x.id == articleId);
 
-            // Añade al carro de compras el articulo, deberia enseñarlo al darle click al icono del carrito
-            // Una vez abierto, debajo de todo el listado de productos seleccionados, deberia indicar el costo total
-            // Asi como un boton que diga algo como "Realizar Pago" donde redirija el al usuario y el list de articulos
-            // a "Purchases.aspx"
+            articleCartList = (List<Article>)Session["Cart"];
+            articleCartList.Add(article);
+            Session["Cart"] = articleCartList;
+
+
+            MasterPage master = (MasterPage)this.Master;
+            master.UpdateCartCount();
+            master.UpdateCartItems();
+          
         }
 
         protected void rptArticleList_ItemDataBound(object sender, RepeaterItemEventArgs e)

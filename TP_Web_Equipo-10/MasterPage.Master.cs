@@ -16,6 +16,8 @@ namespace TP_Web_Equipo_10
         public List<Brand> brandList { get; set; }
         public List<Category> categoryList { get; set; }
         public List<Img> imgList {  get; set; } 
+        public List<Article> articleCartList { get; set; } = new List<Article>();
+
 
         string searchFilter = "";
         int brandIndex = -1;
@@ -47,6 +49,14 @@ namespace TP_Web_Equipo_10
                     ddlCategories.Items.Add(category.name);
                 }
                 SetFiltersFromSession();
+
+                if (Session["Cart"] == null)
+                {
+                    Session["Cart"] = new List<Article>();
+                }
+
+                UpdateCartItems();
+                UpdateCartCount();
             }
         }
 
@@ -150,6 +160,27 @@ namespace TP_Web_Equipo_10
         protected void BtnPurchase_Click(object sender, EventArgs e)
         {
             Response.Redirect("Purchase.aspx");
+        }
+
+        public void AddToCart(Article article)
+        {
+            List<Article> cart = (List<Article>)Session["Cart"];
+            cart.Add(article);
+            Session["Cart"] = cart;
+            UpdateCartCount();
+            UpdateCartItems();
+        }
+
+        public void UpdateCartCount() 
+        {
+            List<Article> cart = (List<Article>)Session["Cart"];
+            lblCartCount.Text = cart.Count.ToString();
+        }
+
+        public void UpdateCartItems() 
+        {
+            List<Article> cart = (List<Article>)Session["Cart"];
+            articleCartList = cart;
         }
     }
 }

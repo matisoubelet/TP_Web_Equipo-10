@@ -15,17 +15,17 @@
 
     <style>
         .card-custom {
-            max-width: 400px; /* Ajusta el ancho máximo de la tarjeta */
-            margin: 1px auto; /* Centra la tarjeta y agrega márgenes */
+            max-width: 400px;
+            margin: 1px auto;
         }
 
         .card-img-left {
-            width: 120px; /* Ancho deseado de la imagen */
-            height: 110px; /* Mantener la proporción */
+            width: 120px;
+            height: 110px;
         }
 
         .card-body-custom {
-            padding: 5px; /* Ajusta el padding interno de la tarjeta */
+            padding: 5px;
         }
 
         html, body {
@@ -67,13 +67,9 @@
 
                                 <button type="button" class="btn btn-primary position-relative" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarrito" style="margin-left: 8px">
                                     <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="" width="24" height="24" />
-                                    <%--este circulito rojo deberia aparecer solo cuando el carrito no esta vacio--%>
-                                    <%if (articleList != null)
-                                        {%>
                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                                        <span class="visually-hidden">Artículos pendientes</span>
+                                        <asp:Label ID="lblCartCount" runat="server" CssClass="text-light"></asp:Label>
                                     </span>
-                                    <%} %>
                                 </button>
                             </form>
                         </div>
@@ -88,18 +84,16 @@
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        <%if (articleList == null)
+                        <%if (articleCartList == null || articleCartList.Count == 0)
                             { %>
-                            
-                        Carrito vacío.
+                              Carrito vacío.
                         <%}
                             else
                             {%>
 
                         <div class="row row-cols-1 row-cols-md-1 g-2">
 
-                            <%
-                                foreach (Article article in articleList)
+                            <%foreach (Article article in articleCartList)
                                 {
                                     string newImgUrl = "";
                                     foreach (Img img in imgList)
@@ -109,6 +103,7 @@
                                             newImgUrl = img.imageUrl;
                                         }
                                     } %>
+
                             <div class="col">
                                 <div class="card h-100 card-custom">
                                     <div class="row g-0">
@@ -126,9 +121,10 @@
                                 </div>
                             </div>
                             <% } %>
-                            <% } %>
-
                             <asp:Button ID="BtnPurchase" runat="server" Text="Comprar" CssClass="btn btn-primary" OnClick="BtnPurchase_Click" />
+                            <% } %>
+                            
+
                         </div>
                     </div>
                 </div>
