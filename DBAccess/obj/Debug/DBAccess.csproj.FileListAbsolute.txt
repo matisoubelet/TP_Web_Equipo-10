@@ -34,3 +34,12 @@ C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-1
 C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.csproj.Up2Date
 C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.dll
 C:\Users\andre\OneDrive\Documentos\PROG3\Repositorios\Actividad4\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.pdb
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\bin\Debug\DBAccess.dll
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\bin\Debug\DBAccess.pdb
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\bin\Debug\ModelDomain.dll
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\bin\Debug\ModelDomain.pdb
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.csproj.AssemblyReference.cache
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.csproj.CoreCompileInputs.cache
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.csproj.Up2Date
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.dll
+C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\DBAccess\obj\Debug\DBAccess.pdb

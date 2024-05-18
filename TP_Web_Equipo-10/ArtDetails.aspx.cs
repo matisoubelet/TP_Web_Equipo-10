@@ -12,11 +12,15 @@ namespace TP_Web_Equipo_10
 {
     public partial class ArtDetails : System.Web.UI.Page
     {
-        ArticleDBAccess articleDBAccess = new ArticleDBAccess();
+        public ArticleDBAccess articleDBAccess = new ArticleDBAccess();
         public Article article = new Article();
         public Img img = new Img();
+     
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["details"] !=null)
             {
                 foreach (Article article in articleDBAccess.ListArticles())
@@ -36,7 +40,6 @@ namespace TP_Web_Equipo_10
                     }
                 }
             }
-            lbl.Text = article.name;
         }
     }
 }

@@ -13,14 +13,5 @@ namespace TP_Web_Equipo_10
 
     public partial class ArtDetails
     {
-
-        /// <summary>
-        /// lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
     }
 }
