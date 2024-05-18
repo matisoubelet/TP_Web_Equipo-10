@@ -28,3 +28,9 @@ C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Reposi
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.CoreCompileInputs.cache
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.dll
 C:\Users\matis\Desktop\Zerafin\Facultad\Materias\Programacion III\WebHTML\Repositorio\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.pdb
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\bin\Debug\ModelDomain.dll
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\bin\Debug\ModelDomain.pdb
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.dll
+C:\Users\Usuario\Desktop\UTN 5to CUATRIMESTRE\Programación III\Actividad 4\Repo Original\Pull 5\TP_Web_Equipo-10\ModelDomain\obj\Debug\ModelDomain.pdb
