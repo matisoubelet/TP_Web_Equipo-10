@@ -27,6 +27,19 @@
         .card-body-custom {
             padding: 5px; /* Ajusta el padding interno de la tarjeta */
         }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-fluid {
+            flex: 1;
+        }
     </style>
 
 </head>
@@ -112,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                                <% } %>
+                            <% } %>
                             <% } %>
 
                             <asp:Button ID="BtnPurchase" runat="server" Text="Comprar" CssClass="btn btn-primary" OnClick="BtnPurchase_Click" />
@@ -121,19 +134,17 @@
                 </div>
             </div>
         </header>
-        <div>
+        <div class="container-fluid">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div>
-            <footer class="fixed-bottom">
-                <div class="p-2 mb-2 bg-secondary text-light">
-                    Grupo 10 - Andrés Tombo - Matías Soubelet - Walter Inzaurralde
-                    <asp:Label ID="lblTemp" Text="lol " runat="server" />
-                </div>
+        <footer class="footer mt-auto py-3 bg-secondary text-light">
+            <div class="container text-center">
+                Grupo 10 - Andrés Tombo - Matías Soubelet - Walter Inzaurralde
+                <asp:Label ID="lblTemp" Text="lol " runat="server" />
+            </div>
 
-            </footer>
-        </div>
+        </footer>
     </form>
 </body>
 </html>
