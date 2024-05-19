@@ -21,7 +21,7 @@ namespace TP_Web_Equipo_10
         public List<Img> imgList = new List<Img>();
         public List<Article> articleCartList = new List<Article>();
 
-        public int currID;
+        public int currID = -1;
 
         string searchFilter = "";
         int brandIndex = -1;
@@ -115,9 +115,7 @@ namespace TP_Web_Equipo_10
             articleCartList.Add(article);
             Session["Cart"] = articleCartList;
 
-
             MasterPage master = (MasterPage)this.Master;
-            master.UpdateCartCount();
             master.UpdateCartItems();
           
         }

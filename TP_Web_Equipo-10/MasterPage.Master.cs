@@ -54,9 +54,7 @@ namespace TP_Web_Equipo_10
                 {
                     Session["Cart"] = new List<Article>();
                 }
-
                 UpdateCartItems();
-                UpdateCartCount();
             }
         }
 
@@ -167,20 +165,58 @@ namespace TP_Web_Equipo_10
             List<Article> cart = (List<Article>)Session["Cart"];
             cart.Add(article);
             Session["Cart"] = cart;
-            UpdateCartCount();
             UpdateCartItems();
-        }
-
-        public void UpdateCartCount() 
-        {
-            List<Article> cart = (List<Article>)Session["Cart"];
-            lblCartCount.Text = cart.Count.ToString();
         }
 
         public void UpdateCartItems() 
         {
             List<Article> cart = (List<Article>)Session["Cart"];
             articleCartList = cart;
+        }
+
+        protected void btnInicio_Click(object sender, EventArgs e)
+        {
+            //resets the filters and loads the page
+            searchFilter = searchBar.Text;
+            brandIndex = ddlBrands.SelectedIndex;
+            categoryIndex = ddlCategories.SelectedIndex;
+
+            if (Session["busq"] != null)
+            {
+                Session["busq"] = "";
+            }
+            else
+            {
+                Session.Add("busq", "");
+            }
+
+            if (Session["marca"] != null)
+            {
+                Session["marca"] = -1;
+            }
+            else
+            {
+                Session.Add("marca", -1);
+            }
+
+            if (Session["categ"] != null)
+            {
+                Session["categ"] = -1;
+            }
+            else
+            {
+                Session.Add("categ", -1);
+            }
+            SetFiltersFromSession();
+            Response.Redirect("Default.aspx", false);
+        }
+
+        protected void BtnEmptyCart_Click(object sender, EventArgs e)
+        {
+            articleCartList.Clear();
+            Session["Cart"] = articleCartList;
+
+            //Response.Redirect("Default.aspx", false);
         }
     }
 }
