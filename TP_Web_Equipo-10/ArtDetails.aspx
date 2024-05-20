@@ -17,19 +17,21 @@
                         if (firstItem == true)
                         {%>
                 <div class="carousel-item active">
-                    <img src="<%: url.imageUrl %>" class="d-block w-100" alt="...">
+                    <img src="<%: url.imageUrl %>" style="height: 400px; width: 230px" class="d-block w-100" onerror="this.src = 'https://static.thenounproject.com/png/82078-200.png'">
                 </div>
                 <% firstItem = false;
-                    }
-                    else
-                    { %>
+                }
+                else
+                { %>
                 <div class="carousel-item">
-                    <img src="<%: url.imageUrl %>" class="d-block w-100" alt="...">
+                    <img src="<%: url.imageUrl %>" style="height: 400px; width: 230px" class="d-block w-100" onerror="this.src = 'https://static.thenounproject.com/png/82078-200.png'">
                 </div>
                 <% }
 
                     } %>
             </div>
+            <% if (imgList.Count > 1)
+                { %>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -38,10 +40,11 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+            <% } %>
         </div>
         <%
 
-            
+
             foreach (Brand brand in brandList)
             {
                 if (brand.id == article.idBrand)

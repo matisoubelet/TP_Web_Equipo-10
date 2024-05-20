@@ -34,10 +34,36 @@
             .form-container .btn-primary {
                 width: 100%;
             }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .custom-number-input {
+            display: flex;
+            align-items: center;
+        }
+
+            .custom-number-input button {
+                padding: 0 10px;
+                background: #f8f9fa;
+                border: 1px solid #ced4da;
+                cursor: pointer;
+            }
+
+                .custom-number-input button:hover {
+                    background: #e9ecef;
+                }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid" style="margin-top:25px">
+    <div class="container-fluid" style="margin-top: 25px">
         <div class="col">
             <table class="table-custom">
                 <thead>
@@ -45,7 +71,9 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Precio unitario</th>
+                        <th>Importe</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,16 +81,24 @@
                         <ItemTemplate>
                             <tr>
                                 <td><%# Container.ItemIndex + 1 %></td>
-                                <td><%# Eval("name") %></td>
-                                <td><%# Eval("desc") %></td>
-                                <td>$<%# Eval("price") %></td>
+                                <td><%# Eval("article.name") %></td>
+                                <td><%# Eval("article.desc") %></td>
+                                <td>
+                                    <div class="custom-number-input">
+                                        <asp:LinkButton ID="btnMinusQ" Text="-" TextMode="Number" CssClass="btn btn-outline-secondary" runat="server" CommandArgument='<%# Eval("article.id") %>' OnClick="btnMinusQ_Click"/>
+                                        <asp:TextBox id="tbxQuantity" type="number" CssClass="form-control" runat="server" Text='<%# Eval("quantity") %>' ReadOnly="true"/>
+                                        <asp:LinkButton ID="btnPlusQ" Text="+" TextMode="Number" CssClass="btn btn-outline-secondary" runat="server" CommandArgument='<%# Eval("article.id") %>' OnClick="btnPlusQ_Click"/>
+                                    </div>
+                                </td>
+                                <td>$<%# Eval("article.price") %></td>
+                                <td>$<%# (float)Eval("article.price") * (int)Eval("quantity") %></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3">Total</td>
+                        <td colspan="5">Total</td>
                         <td>$<%= GetTotalPrice() %></td>
                     </tr>
                 </tfoot>
@@ -95,12 +131,9 @@
                     <input type="text" class="form-control" id="inputSecurityNumber" />
                 </div>
                 <div class="col-md">
-                    <button type="submit" class="btn btn-primary">Finalizar Comprar</button>
+                    <asp:Button UseSubmitBehavior="false" ID="btnConfirm" CssClass="btn btn-primary" Text="Finalizar Compra" runat="server" OnClick="btnConfirm_Click"/>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </asp:Content>

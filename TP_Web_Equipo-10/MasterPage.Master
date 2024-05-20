@@ -2,6 +2,7 @@
 
 <%@ Import Namespace="ModelDomain" %>
 <%@ Import Namespace="DBAccess" %>
+<%@ Import Namespace="TP_Web_Equipo_10" %>
 
 <!DOCTYPE html>
 
@@ -40,6 +41,31 @@
         .container-fluid {
             flex: 1;
         }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .custom-number-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-number-input button {
+            padding: 0 10px;
+            background: #f8f9fa;
+            border: 1px solid #ced4da;
+            cursor: pointer;
+        }
+
+        .custom-number-input button:hover {
+            background: #e9ecef;
+        }
     </style>
 
 </head>
@@ -59,8 +85,8 @@
                                 { %>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                                <asp:DropDownList CssClass="form-select" Style="width: auto; margin-right: 8px" ID="ddlBrands" runat="server" OnSelectedIndexChanged="ddlBrands_SelectedIndexChanged"></asp:DropDownList>
-                                <asp:DropDownList CssClass="form-select" Style="width: auto; margin-right: 8px" ID="ddlCategories" runat="server" OnSelectedIndexChanged="ddlCategories_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList CssClass="form-select" AutoPostBack="true" Style="width: auto; margin-right: 8px" ID="ddlBrands" runat="server" OnSelectedIndexChanged="ddlBrands_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList CssClass="form-select" AutoPostBack="true" Style="width: auto; margin-right: 8px" ID="ddlCategories" runat="server" OnSelectedIndexChanged="ddlCategories_SelectedIndexChanged"></asp:DropDownList>
 
                             </ul>
                             <% } %>
@@ -70,15 +96,18 @@
                                 <asp:TextBox ID="searchBar" runat="server" CssClass="form-control me-2" placeholder=" Buscar..."></asp:TextBox>
                                 <asp:Button ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="btn btn-outline-success" Text="Buscar" Style="margin-right: 8px" />
                                 <% } %>
+                                <% if (this.Page.Request.FilePath != "/Purchase.aspx")
+                                    { %>
                                 <button type="button" class="btn btn-primary position-relative ms-auto" data-bs-toggle="offcanvas" href="#offcanvasCarrito" role="button" aria-controls="offcanvasCarrito">
                                     <img src="https://pngimg.com/d/shopping_cart_PNG4.png" alt="" width="24" height="24" />
-                                    <% if (((List<Article>)Session["Cart"]).Count > 0)
+                                    <% if (((List<CartItem>)Session["Cart"]).Count > 0)
                                         { %>
                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                                         <asp:Label ID="lblCartCount" runat="server" CssClass="text-light"></asp:Label>
                                     </span>
                                     <% } %>
                                 </button>
+                                <% } %>
                             </form>
                         </div>
                     </div>
@@ -94,21 +123,22 @@
                     <div>
                         <%if (articleCartList == null || articleCartList.Count == 0)
                             { %>
-                              Carrito vacío.
+                            <h6>Carrito vacío.</h6> 
                         <%}
                             else
                             {%>
 
                         <div class="row row-cols-1 row-cols-md-1 g-2">
 
-                            <%foreach (Article article in articleCartList)
+                            <%foreach (CartItem item in articleCartList)
                                 {
                                     string newImgUrl = "";
                                     foreach (Img img in imgList)
                                     {
-                                        if (article.id == img.id)
+                                        if (item.article.id == img.articleID)
                                         {
                                             newImgUrl = img.imageUrl;
+                                            break;
                                         }
                                     } %>
 
@@ -116,23 +146,29 @@
                                 <div class="card h-100 card-custom">
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img src="<%: newImgUrl %>" class="img-fluid card-img-left rounded-start" alt="...">
+                                            <img src="<%: newImgUrl %>" class="img-fluid card-img-left rounded-start" onerror="this.src = 'https://static.thenounproject.com/png/82078-200.png'">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body card-body-custom">
-                                                <h5 class="card-title"><%: article.name %></h5>
-                                                <p class="card-text"><%: article.desc %></p>
-                                                <p class="card-text">$<%: article.price %></p>
+                                                <div class="input-group mb-2">
+                                                    <h5 class="card-title form-label"><%: item.article.name %></h5>
+                                                    <h5 style="text-align:right; margin-right: 5px" class="card-text ms-auto"><%: item.quantity %></h5>                                                    
+                                                </div>
+                                                <p class="card-text"><%: item.article.desc %></p>
+                                                <p class="card-text">$<%: item.article.price %></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <% } %>
-                            <div class="footer py-2 position-absolute bg-light" style="bottom: 0px; text-align:center">
-                                <asp:Button ID="BtnPurchase" runat="server" Text="Ir al pago" CssClass="btn btn-primary btn-lg" OnClick="BtnPurchase_Click" />
-                                <asp:Button ID="BtnEmptyCart" runat="server" Text="Vaciar Carrito" CssClass="btn btn-secondary btn-lg" OnClick="BtnEmptyCart_Click" />
-                            </div>
+                                <% if (this.Page.Request.FilePath != "/Purchase.aspx")
+                                    { %>
+                                <div class="footer py-2 position-absolute bg-light" style="bottom: 0px; text-align: center">
+                                    <asp:Button ID="BtnPurchase" runat="server" Text="Ir al pago" CssClass="btn btn-primary btn-lg" OnClick="BtnPurchase_Click" />
+                                    <asp:Button ID="BtnEmptyCart" runat="server" Text="Vaciar Carrito" CssClass="btn btn-secondary btn-lg" OnClick="BtnEmptyCart_Click" />
+                                </div>
+                                <% } %>
                             <% } %>
                         </div>
                     </div>
@@ -148,7 +184,6 @@
                 Grupo 10 - Andrés Tombo - Matías Soubelet - Walter Inzaurralde
                 <asp:Label ID="lblTemp" Text="lol " runat="server" Visible="false" />
             </div>
-
         </footer>
     </form>
 </body>

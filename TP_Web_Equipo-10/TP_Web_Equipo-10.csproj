@@ -81,6 +81,7 @@
     <Compile Include="ArtDetails.aspx.designer.cs">
       <DependentUpon>ArtDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CartItem.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

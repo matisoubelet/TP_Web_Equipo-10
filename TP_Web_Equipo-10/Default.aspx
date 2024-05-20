@@ -12,16 +12,16 @@
 
                 <%# currID = (int)Eval("id") %>
                 
-                <div class="card" style="width: 250px; background-color: rgba(13,110,253,.25)">
+                <div class="card" style="width: 250px">
                     <asp:Repeater runat="server" ID="rptImgList">
                         <ItemTemplate>
                             <div style="margin: 10px" runat="server" visible='<%# ((int)Eval("articleID")) == currID %>'>
-                                <img style="height:210px; width:230px" src="<%# Eval("imageUrl")%>" class="card-img-top img-thumbnail" onerror="this.src = 'https://static.thenounproject.com/png/82078-200.png'">
+                                <img style="height:210px; width:230px; margin-top:10px" src="<%# Eval("imageUrl")%>" class="card-img-top img-thumbnail" onerror="this.src = 'https://static.thenounproject.com/png/82078-200.png'">
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
 
-                    <div style="background-color: rgba(13,110,253,.25)" class="card-body">  
+                    <div class="card-body">  
 
                         <h5 class="card-title"><%#Eval("name")%></h5>
                         <div class="form-floating mb-3">
@@ -35,8 +35,8 @@
                     </div>
                         
                     <div class="card" style="margin-bottom: 10px">
-                        <asp:LinkButton ID="btnDetails" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-info" OnClick="btnDetails_Click" Text="Ver Detalles" />
-                        <asp:LinkButton ID="btnAddToCart" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-primary" OnClick="btnAddToCart_Click" Text="Agregar al Carrito" />
+                        <asp:LinkButton ID="btnDetails" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-info" OnClick="btnDetails_Click" Text="Ver Detalles"  />
+                        <asp:LinkButton ID="btnAddToCart" CommandArgument='<%#Eval("id")%>' runat="server" CssClass="btn btn-primary"  OnClick="btnAddToCart_Click" Text="Agregar al Carrito" style="margin-top:8px"/>
                     </div>
                 </div>
             </ItemTemplate>

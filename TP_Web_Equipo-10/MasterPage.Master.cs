@@ -16,7 +16,7 @@ namespace TP_Web_Equipo_10
         public List<Brand> brandList { get; set; }
         public List<Category> categoryList { get; set; }
         public List<Img> imgList {  get; set; } 
-        public List<Article> articleCartList { get; set; } = new List<Article>();
+        public List<CartItem> articleCartList { get; set; } = new List<CartItem>();
 
 
         string searchFilter = "";
@@ -52,7 +52,7 @@ namespace TP_Web_Equipo_10
 
                 if (Session["Cart"] == null)
                 {
-                    Session["Cart"] = new List<Article>();
+                    Session["Cart"] = new List<CartItem>();
                 }
                 UpdateCartItems();
             }
@@ -96,7 +96,6 @@ namespace TP_Web_Equipo_10
         protected void ddlBrands_SelectedIndexChanged(object sender, EventArgs e)
         {
             brandIndex = ddlBrands.SelectedIndex;
-            Debug.WriteLine(brandIndex);
 
             if (Session["marca"] != null)
             {
@@ -127,7 +126,6 @@ namespace TP_Web_Equipo_10
         protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             categoryIndex = ddlCategories.SelectedIndex;
-            Debug.WriteLine(categoryIndex);
 
             if (Session["categ"] != null)
             {
@@ -160,21 +158,18 @@ namespace TP_Web_Equipo_10
             Response.Redirect("Purchase.aspx");
         }
 
-        public void AddToCart(Article article)
-        {
-            List<Article> cart = (List<Article>)Session["Cart"];
-            cart.Add(article);
-            Session["Cart"] = cart;
-            UpdateCartItems();
-        }
-
         public void UpdateCartItems() 
         {
-            List<Article> cart = (List<Article>)Session["Cart"];
+            List<CartItem> cart = (List<CartItem>)Session["Cart"];
             articleCartList = cart;
         }
 
         protected void btnInicio_Click(object sender, EventArgs e)
+        {
+            ResetFilters();
+        }
+
+        public void ResetFilters()
         {
             //resets the filters and loads the page
             searchFilter = searchBar.Text;
@@ -213,10 +208,31 @@ namespace TP_Web_Equipo_10
 
         protected void BtnEmptyCart_Click(object sender, EventArgs e)
         {
+            EmptyCart();
+        }
+
+        public void EmptyCart()
+        {
             articleCartList.Clear();
             Session["Cart"] = articleCartList;
+        }
 
-            //Response.Redirect("Default.aspx", false);
+        public void UpdateCartQuantity(int id, int quantity)
+        {
+            foreach (CartItem item in articleCartList)
+            {
+                if (item.article.id == id)
+                {
+                    if (quantity == 0)
+                    {
+                        articleCartList.Remove(item);
+                    }
+                    else
+                    {
+                        item.quantity = quantity;
+                    }
+                }
+            }
         }
     }
 }

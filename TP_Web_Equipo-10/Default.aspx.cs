@@ -19,7 +19,7 @@ namespace TP_Web_Equipo_10
 
         public List<Article> articleList = new List<Article>();
         public List<Img> imgList = new List<Img>();
-        public List<Article> articleCartList = new List<Article>();
+        public List<CartItem> articleCartList = new List<CartItem>();
 
         public int currID = -1;
 
@@ -37,7 +37,7 @@ namespace TP_Web_Equipo_10
 
             articleList = new List<Article>();
             imgList = new List<Img>();
-            articleCartList = new List<Article>();
+            articleCartList = new List<CartItem>();
 
             bool filtered;
             Img previewPic = new Img();
@@ -93,6 +93,7 @@ namespace TP_Web_Equipo_10
                 
             }
         }
+
         protected void btnDetails_Click(object sender, EventArgs e)
         {
             if (Session["details"] != null)
@@ -109,15 +110,30 @@ namespace TP_Web_Equipo_10
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             int articleId = int.Parse(((LinkButton)sender).CommandArgument);
-            Article article = articleList.Find(x => x.id == articleId);
+            CartItem newCartItem = new CartItem();
+            newCartItem.article = articleList.Find(x => x.id == articleId);
+            bool itemFound = false;
 
-            articleCartList = (List<Article>)Session["Cart"];
-            articleCartList.Add(article);
+            articleCartList = (List<CartItem>)Session["Cart"];
+
+            foreach (CartItem item in articleCartList)
+            {
+                if (item.article.id == newCartItem.article.id)
+                {
+                    item.quantity++;
+                    itemFound = true;
+                    break;
+                }
+            }
+            if (!itemFound)
+            {
+                articleCartList.Add(newCartItem);
+            }
             Session["Cart"] = articleCartList;
 
             MasterPage master = (MasterPage)this.Master;
             master.UpdateCartItems();
-          
+            Response.Redirect("Default.aspx", false);
         }
 
         protected void rptArticleList_ItemDataBound(object sender, RepeaterItemEventArgs e)
