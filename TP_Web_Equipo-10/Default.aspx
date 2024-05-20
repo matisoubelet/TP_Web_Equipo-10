@@ -9,10 +9,10 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater runat="server" ID="rptArticleList" OnItemDataBound="rptArticleList_ItemDataBound">
             <ItemTemplate>
-
-                <%# currID = (int)Eval("id") %>
-                
-                <div class="card" style="width: 250px">
+                <div hidden>
+                    <%# currID = (int)Eval("id") %>
+                </div>
+                <div class="card" style="width: 250px; margin-left:12px; margin-top:36px">
                     <asp:Repeater runat="server" ID="rptImgList">
                         <ItemTemplate>
                             <div style="margin: 10px" runat="server" visible='<%# ((int)Eval("articleID")) == currID %>'>
